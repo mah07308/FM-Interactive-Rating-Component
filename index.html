@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="sr-only">Interactive Rating component</h1>
+      <div class="rating-state">
+        <!-- Rating state start -->
+        <div class="star-image">
+          <img src="./images/icon-star.svg" alt="" />
+        </div>
+        <h2>How did we do?</h2>
+        <p>
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+
+        <div class="rating-container">
+          <input class="rating-btn" type="button" value="1" />
+          <input class="rating-btn" type="button" value="2" />
+          <input class="rating-btn" type="button" value="3" />
+          <input class="rating-btn" type="button" value="4" />
+          <input class="rating-btn" type="button" value="5" />
+        </div>
+
+        <div class="submit-container">
+          <input class="submit" type="submit" value="Submit" />
+        </div>
+
+        <!-- Rating state end -->
+      </div>
+      <div class="thank-you-state-container hidden">
+        <div class="thank-you-state">
+          <!-- Thank you state start -->
+          <img src="./images/illustration-thank-you.svg" alt="" />
+          <div class="rating-message-container">
+            <p class="rating-message">You selected 0 out of 5</p>
+          </div>
+          <p class="thank-you">Thank you!</p>
+          <p class="appreciation">
+            We appreciate you taking the time to give a rating. If you ever need
+            more support, don’t hesitate to get in touch!
+          </p>
+          <!-- Thank you state end -->
+        </div>
+      </div>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.frontendmentor.io/profile/mah07308" target="_blank"
+        >Mohammed Ahmad Hussain</a
+      >.
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
