@@ -8,13 +8,91 @@
   --very-dark-blue: hsl(216, 12%, 8%);
 }
 
+/* RESET START */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* RESET END */
+
 * {
   padding: 0;
 }
 
-html {
+/* html {
   font-size: 93.75%;
-}
+} */
 
 body {
   font-family: 'Overpass', sans-serif;
@@ -41,13 +119,14 @@ body {
 }
 
 .container {
-  /* min-height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 25rem;
   margin: 1rem;
 }
+
+/* RATING STATE */
 
 .rating-state,
 .thank-you-state {
@@ -81,30 +160,51 @@ body {
   margin: 1em 0;
 }
 
-.rating-container {
+.rating-form__group {
+  border: none;
   display: flex;
   justify-content: space-between;
   margin: 2em 0;
 }
 
-.rating-btn {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 3rem;
-  border: none;
-  background-color: hsla(216, 12%, 54%, 0.1);
-  color: var(--light-grey);
-  /* line-height: 100%; */
+.rating-form__control {
+  display: grid;
+  grid-template-areas: 'radio';
 }
 
-.rating-btn:hover,
-.rating-btn:active {
+.rating-form__radio {
+  grid-area: radio;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background-color: hsla(216, 12%, 54%, 0.1);
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.rating-form__radio:hover {
   background-color: var(--orange);
+}
+
+.rating-form__radio:checked {
+  background-color: var(--light-grey);
+}
+
+.rating-form__label {
+  grid-area: radio;
+  place-self: center;
+  color: var(--light-grey);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rating-form__radio:hover + .rating-form__label {
   color: var(--white);
 }
 
-.rating-active {
-  background: var(--light-grey);
+.rating-form__radio:checked + .rating-form__label {
   color: var(--white);
 }
 
@@ -123,11 +223,18 @@ body {
   font-weight: bold;
 }
 
-.submit:hover,
-.submit:active {
+.submit:enabled:hover,
+.submit:enabled:active {
   background-color: var(--white);
   color: var(--orange);
 }
+
+.submit:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* THANK YOU STATE */
 
 .thank-you-state {
   display: flex;
@@ -138,14 +245,12 @@ body {
 }
 
 .rating-message-container {
-  /* width: 60%; */
-  /* height: 2rem; */
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: hsla(216, 12%, 54%, 0.1);
   margin: 1.5rem 0;
-  /* padding: 0.5em; */
+
   border-radius: 2.5rem;
 }
 

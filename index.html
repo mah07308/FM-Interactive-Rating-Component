@@ -21,14 +21,14 @@
 
     <title>Frontend Mentor | Interactive rating component</title>
 
-    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="container">
       <h1 class="sr-only">Interactive Rating component</h1>
+
+      <!-- Rating state start -->
       <div class="rating-state">
-        <!-- Rating state start -->
         <div class="star-image">
           <img src="./images/icon-star.svg" alt="" />
         </div>
@@ -38,20 +38,68 @@
           is appreciated to help us improve our offering!
         </p>
 
-        <div class="rating-container">
-          <input class="rating-btn" type="button" value="1" />
-          <input class="rating-btn" type="button" value="2" />
-          <input class="rating-btn" type="button" value="3" />
-          <input class="rating-btn" type="button" value="4" />
-          <input class="rating-btn" type="button" value="5" />
-        </div>
-
-        <div class="submit-container">
-          <input class="submit" type="submit" value="Submit" />
-        </div>
-
-        <!-- Rating state end -->
+        <form class="rating-form">
+          <fieldset class="rating-form__group">
+            <legend class="sr-only">Select a rating:</legend>
+            <div class="rating-form__control">
+              <input
+                class="rating-form__radio"
+                type="radio"
+                value="1"
+                name="rating"
+                id="rating-1"
+              />
+              <label for="rating-1" class="rating-form__label">1</label>
+            </div>
+            <div class="rating-form__control">
+              <input
+                class="rating-form__radio"
+                type="radio"
+                value="2"
+                name="rating"
+                id="rating-2"
+              />
+              <label for="rating-2" class="rating-form__label">2</label>
+            </div>
+            <div class="rating-form__control">
+              <input
+                class="rating-form__radio"
+                type="radio"
+                value="3"
+                name="rating"
+                id="rating-3"
+              />
+              <label for="rating-3" class="rating-form__label">3</label>
+            </div>
+            <div class="rating-form__control">
+              <input
+                class="rating-form__radio"
+                type="radio"
+                value="4"
+                name="rating"
+                id="rating-4"
+              />
+              <label for="rating-4" class="rating-form__label">4</label>
+            </div>
+            <div class="rating-form__control">
+              <input
+                class="rating-form__radio"
+                type="radio"
+                value="5"
+                name="rating"
+                id="rating-5"
+                checked
+              />
+              <label for="rating-5" class="rating-form__label">5</label>
+            </div>
+          </fieldset>
+          <div class="submit-container">
+            <input class="submit" type="submit" value="Submit" disabled />
+          </div>
+        </form>
       </div>
+
+      <!-- Rating state end -->
       <div class="thank-you-state-container hidden">
         <div class="thank-you-state">
           <!-- Thank you state start -->

@@ -1,29 +1,23 @@
-let selectedRating = 0;
-const ratingButtons = document.querySelectorAll('.rating-btn');
-const ratingState = document.querySelector('.rating-state');
+const radioButtons = document.querySelectorAll('.rating-form__radio');
+const submitButton = document.querySelector('.submit');
+
+radioButtons.forEach(radioButton => {
+  radioButton.addEventListener('change', () => {
+    submitButton.removeAttribute('disabled');
+  });
+});
+
+const form = document.querySelector('.rating-form');
+const ratingMessage = document.querySelector('.rating-message');
 const thankYouStateContainer = document.querySelector(
   '.thank-you-state-container'
 );
-const submitBtn = document.querySelector('.submit');
-const ratingMessage = document.querySelector('.rating-message');
+const ratingState = document.querySelector('.rating-state');
 
-// console.log(ratingButtons);
-
-ratingButtons.forEach(
-  button =>
-    (button.onclick = e => {
-      removeActiveRating();
-      button.classList.add('rating-active');
-      selectedRating = e.target.value;
-      ratingMessage.innerText = `You selected ${selectedRating} out of 5`;
-    })
-);
-
-function removeActiveRating() {
-  ratingButtons.forEach(button => button.classList.remove('rating-active'));
-}
-
-submitBtn.onclick = () => {
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const selectedRating = e.target.rating.value;
   ratingState.classList.add('hidden');
+  ratingMessage.innerText = `You selected ${selectedRating} out of 5`;
   thankYouStateContainer.classList.remove('hidden');
-};
+});
